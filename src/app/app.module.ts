@@ -12,10 +12,10 @@ import { FormsModule } from '@angular/forms';
 
 const addRoutes:Routes = [
   {
-    path:"",component:AddEmployeeComponent
+    path:"",component:ViewEmployeeComponent
   },
   {
-    path:"view-employee",component:ViewEmployeeComponent
+    path:"add-employee",component:AddEmployeeComponent
   },
   {
     path:"search-employee",component:SearchEmployeeComponent
