@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-search-employee',
@@ -7,30 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchEmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myApi:ApiService) { }
 
-  empCode = ""
+  name = ""
 
-  employeeData: any = [
-    {
-      "name": "heelo",
-      "empCode": "152",
-      "desgin": "desg",
-      "company": "nest",
-      "email": "EMAIL.COM",
-      "address": "addessf dsf",
-      "dob": "25+05-20",
-      "phone": "565233",
-      "salary": "56222",
-      "doj": "5-90-200",
-    }
-  ]
+  employeeData: any = []
 
   readValues = () => {
     let data = {
-      "empCode": this.empCode,
-      "name": this.empCode
+      "name": this.name
     }
+    this.myApi.searchEmployeeData(data).subscribe(
+      (resp)=>{
+        this.employeeData = resp;
+      }
+    )
     console.log(data)
   }
 
