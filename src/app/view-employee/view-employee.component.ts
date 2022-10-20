@@ -22,6 +22,19 @@ export class ViewEmployeeComponent implements OnInit {
     )
   }
 
+  deleteEmployeeData = (id:any)=>{
+    let data = {
+      "id":id
+    }
+    this.myApi.deleteEmployeeData(data).subscribe(
+      (resp)=>{
+
+      }
+    )
+    alert("Deleted")
+    this.putEmployeeData()
+  }
+
   ngOnInit(): void {
   }
 
