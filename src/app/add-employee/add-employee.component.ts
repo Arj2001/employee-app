@@ -9,6 +9,35 @@ export class AddEmployeeComponent implements OnInit {
 
   constructor() { }
 
+  name = ""
+  empCode = ""
+  desgin = ""
+  company = ""
+  email = ""
+  address = ""
+  dob = ""
+  phone = ""
+  salary = ""
+  doj = ""
+
+  readValues=()=>{
+    let data = [
+      {
+        "name":this.name,
+        "empCode":this.empCode,
+        "desgin":this.desgin,
+        "company":this.company,
+        "email":this.email,
+        "address":this.address,
+        "dob":this.dob,
+        "phone":this.phone,
+        "salary":this.salary,
+        "doj":this.doj,
+      }
+    ]
+    console.log(data)
+  }
+
   ngOnInit(): void {
   }
 
