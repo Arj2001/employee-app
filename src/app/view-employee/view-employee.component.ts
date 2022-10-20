@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-view-employee',
@@ -7,22 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myApi:ApiService) {
+    this.putEmployeeData()
+   }
 
-  employeeData :any = [
-    {
-      "name":"heelo",
-        "empCode":"152",
-          "desgin":"desg",
-          "company":"nest",
-        "email":"EMAIL.COM",
-        "address":"addessf dsf",
-        "dob":"25+05-20",
-        "phone":"565233",
-        "salary":"56222",
-        "doj":"5-90-200",
-    }
-  ]
+  employeeData :any = [  ]
+
+  putEmployeeData = ()=>{
+    this.myApi.getEmployeeData().subscribe(
+      (resp)=>{
+        this.employeeData = resp;
+      }
+    )
+  }
 
   ngOnInit(): void {
   }
